@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hajuenter KHODAM✅</title>
+    <link rel="stylesheet" href="./css/output.css">
+</head>
+<body class="bg-gray-100 flex items-center justify-center h-screen">
+    <img src="./img/4561977.jpg" alt="background" class="absolute inset-0 w-full h-full object-cover z-0">
+    <div class="absolute top-4 right-4 z-10">
+        <a href="./index.html" class="bg-blue-500 text-white py-2 px-4 rounded-md hover:bg-blue-600">Kembali</a>
+    </div>
+    <div class="bg-white p-6 shadow-md w-full max-w-md relative z-10">
+        <h2 class="text-2xl font-bold mb-4 text-center">Check Khodam Anda</h2>
+        <form id="khodamForm" class="space-y-4">
+            <div>
+                <div id="khodamResult" class="mt-4 hidden p-4 bg-green-100 text-green-800 rounded-md"></div>
+                <label for="name" class="block text-sm font-medium text-gray-700">Nama</label>
+                <input type="text" id="name" name="name" required class="mt-1 p-2 w-full border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring focus:ring-indigo-200 focus:border-indigo-500">
+            </div>
+            <button type="submit" class="w-full bg-indigo-500 text-white py-2 px-4 rounded-md hover:bg-indigo-600">Cek Khodam</button>
+            <button type="button" id="resetButton" class="w-full bg-gray-500 text-white py-2 px-4 rounded-md hover:bg-gray-600 mt-2">Reset</button>
+        </form>
+    </div>
+    <script>
+        //cek khodam
+const khodamForm = document.getElementById('khodamForm');
+const khodamResult = document.getElementById('khodamResult');
+const resetButton = document.getElementById('resetButton');
+
+const animals = ['Harimau', 'Elang', 'Serigala', 'Kucing', 'Singa', 'Buaya', 'Gajah', 'Macan', 'Rusa', 'Jerapah', 'Ultramen', 'Joker', 'Bocil Epep', 'Power Renjes'];
+
+khodamForm.addEventListener('submit', function (event) {
+    event.preventDefault();
+    const name = document.getElementById('name').value.trim();
+    if (name) {
+        const randomAnimal = animals[Math.floor(Math.random() * animals.length)];
+        khodamResult.textContent = `Khodam Anda adalah ${randomAnimal}`;
+        khodamResult.classList.remove('hidden');
+    }
+});
+
+resetButton.addEventListener('click', function () {
+    khodamForm.reset();
+    khodamResult.classList.add('hidden');
+});
+
+    </script>
+</body>
+</html>

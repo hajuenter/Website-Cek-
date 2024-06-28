@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hajuenter JODOH✅</title>
+    <link rel="stylesheet" href="./css/output.css">
+</head>
+<body class="bg-gray-100 flex items-center justify-center h-screen relative">
+    <img src="./img/4561977.jpg" alt="background" class="absolute inset-0 w-full h-full object-cover z-0">
+    <div class="absolute top-4 right-4 z-10">
+        <a href="index.html" class="bg-blue-500 text-white py-2 px-4 rounded-md hover:bg-blue-600">Kembali</a>
+    </div>
+    <div class="bg-white p-6 shadow-md w-full max-w-md relative z-10">
+        <h2 class="text-2xl font-bold mb-4 text-center">Check Kecocokan Jodoh Anda</h2>
+        <form id="jodohForm" class="space-y-4">
+            <div id="result" class="mt-4 hidden p-4 bg-green-100 text-green-800 rounded-md"></div>
+            <div class="flex items-center space-x-2">
+                <svg class="w-6 h-6 text-blue-500" fill="currentColor" viewBox="0 0 24 24">
+                    <path d="M12 2a7 7 0 0 0-7 7c0 3.866 3.134 7 7 7s7-3.134 7-7-3.134-7-7-7zm0 12a5 5 0 0 1-5-5c0-2.762 2.238-5 5-5s5 2.238 5 5-2.238 5-5 5zm7 4h-2a4 4 0 0 0-4-4h-2a4 4 0 0 0-4 4H5a1 1 0 0 0-1 1v2a1 1 0 0 0 1 1h14a1 1 0 0 0 1-1v-2a1 1 0 0 0-1-1z"/>
+                </svg>
+                <input type="text" id="maleName" name="maleName" placeholder="Nama Cowok" required class="mt-1 p-2 w-full border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring focus:ring-indigo-200 focus:border-indigo-500">
+            </div>
+            <div class="flex items-center space-x-2">
+                <svg class="w-6 h-6 text-pink-500" fill="currentColor" viewBox="0 0 24 24">
+                    <path d="M12 2a7 7 0 0 0-7 7c0 3.866 3.134 7 7 7s7-3.134 7-7-3.134-7-7-7zm0 12a5 5 0 0 1-5-5c0-2.762 2.238-5 5-5s5 2.238 5 5-2.238 5-5 5zm7 4h-2a4 4 0 0 0-4-4h-2a4 4 0 0 0-4 4H5a1 1 0 0 0-1 1v2a1 1 0 0 0 1 1h14a1 1 0 0 0 1-1v-2a1 1 0 0 0-1-1z"/>
+                </svg>
+                <input type="text" id="femaleName" name="femaleName" placeholder="Nama Cewek" required class="mt-1 p-2 w-full border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring focus:ring-indigo-200 focus:border-indigo-500">
+            </div>
+            <button type="submit" id="checkButton" class="w-full bg-red-500 text-white py-2 px-4 rounded-md hover:bg-red-600 flex items-center justify-center space-x-2">
+                <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24">
+                    <path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41 0.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/>
+                </svg>
+                <span>Cek Kecocokan</span>
+            </button>
+            <button type="button" id="resetButton" class="w-full bg-gray-500 text-white py-2 px-4 rounded-md hover:bg-gray-600 mt-2">Reset</button>
+        </form>
+    </div>
+
+    <script>
+        const jodohForm = document.getElementById('jodohForm');
+        const result = document.getElementById('result');
+        const checkButton = document.getElementById('checkButton');
+        const resetButton = document.getElementById('resetButton');
+
+        checkButton.addEventListener('click', function(event) {
+            event.preventDefault();
+            const maleName = document.getElementById('maleName').value.trim();
+            const femaleName = document.getElementById('femaleName').value.trim();
+            if (maleName && femaleName) {
+                const matchPercentage = Math.floor(Math.random() * 100) + 1;
+                result.textContent = `Kecocokan jodoh antara ${maleName} dan ${femaleName} adalah ${matchPercentage}%`;
+                result.classList.remove('hidden');
+            }
+        });
+
+        resetButton.addEventListener('click', function() {
+            jodohForm.reset();
+            result.classList.add('hidden');
+        });
+    </script>
+</body>
+</html>
